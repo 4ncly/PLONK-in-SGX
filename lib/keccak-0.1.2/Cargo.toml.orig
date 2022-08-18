@@ -1,0 +1,18 @@
+[package]
+name = "keccak"
+version = "0.1.2"
+description = """
+Pure Rust implementation of the Keccak sponge function including the keccak-f
+and keccak-p variants
+"""
+authors = ["RustCrypto Developers"]
+license = "Apache-2.0 OR MIT"
+documentation = "https://docs.rs/keccak"
+repository = "https://github.com/RustCrypto/sponges/tree/master/keccak"
+keywords = ["crypto", "sponge", "keccak", "keccak-f", "keccak-p"]
+categories = ["cryptography", "no-std"]
+readme = "README.md"
+
+[features]
+no_unroll = [] # Do no unroll loops for binary size reduction
+simd = [] # Use core::simd (WARNING: requires Nigthly)

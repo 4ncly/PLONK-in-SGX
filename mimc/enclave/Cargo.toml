@@ -1,0 +1,56 @@
+[package]
+name = "mimc"
+version = "1.0.0"
+authors = ["The Teaclave Authors"]
+
+[lib]
+name = "mimc"
+crate-type = ["staticlib"]
+
+[features]
+default = []
+
+[dependencies]
+
+
+ff =                {path = "/root/sgx/mybellman/other/ff-0.11.0",default-features=false,features=["bits"]}
+bellman =           {path = "../../other/bellman",features=["groth16"]}
+rand =              {path = "/root/sgx/mybellman/other/rand-sgx",features=["mesalock_sgx"]}
+bls12_381 =         {path = "/root/sgx/mybellman/other/bls12_381-0.6.0"}
+rand_core =         {path = "/root/sgx/mybellman/other/rand-sgx/rand_core"}
+regex     =         {path = "/root/sgx/mybellman/other/regex-sgx"}
+serde_json =        {path = "/root/sgx/mybellman/other/serde-json-sgx",default-features=false,features=["alloc","mesalock_sgx"]}
+
+
+
+[target.'cfg(not(target_env = "sgx"))'.dependencies]
+sgx_types = { path = "../../../sgx_types"}
+sgx_tstd =  { path = "../../../sgx_tstd" }
+
+
+[patch.'https://github.com/apache/teaclave-sgx-sdk.git']
+sgx_alloc = { path = "../../../sgx_alloc" }
+sgx_backtrace = { path = "../../../sgx_backtrace" }
+sgx_backtrace_sys = { path = "../../../sgx_backtrace_sys" }
+sgx_build_helper = { path = "../../../sgx_build_helper" }
+sgx_cov = { path = "../../../sgx_cov" }
+sgx_crypto_helper = { path = "../../../sgx_crypto_helper" }
+sgx_demangle = { path = "../../../sgx_demangle" }
+sgx_libc = { path = "../../../sgx_libc" }
+sgx_rand = { path = "../../../sgx_rand" }
+sgx_rand_derive = { path = "../../../sgx_rand_derive" }
+sgx_serialize = { path = "../../../sgx_serialize" }
+sgx_serialize_derive = { path = "../../../sgx_serialize_derive" }
+sgx_serialize_derive_internals = { path = "../../../sgx_serialize_derive_internals" }
+sgx_tcrypto = { path = "../../../sgx_tcrypto" }
+sgx_tcrypto_helper = { path = "../../../sgx_tcrypto_helper" }
+sgx_tdh = { path = "../../../sgx_tdh" }
+sgx_tkey_exchange = { path = "../../../sgx_tkey_exchange" }
+sgx_tprotected_fs = { path = "../../../sgx_tprotected_fs" }
+sgx_trts = { path = "../../../sgx_trts" }
+sgx_tse = { path = "../../../sgx_tse" }
+sgx_tseal = { path = "../../../sgx_tseal" }
+sgx_tstd = { path = "../../../sgx_tstd" }
+sgx_tunittest = { path = "../../../sgx_tunittest" }
+sgx_types = { path = "../../../sgx_types" }
+sgx_unwind = { path = "../../../sgx_unwind" }

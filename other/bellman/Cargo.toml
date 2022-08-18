@@ -1,0 +1,113 @@
+[package]
+authors = [
+    "Sean Bowe <ewillbefull@gmail.com>",
+    "Jack Grigg <thestr4d@gmail.com>",
+]
+description = "zk-SNARK library"
+readme = "README.md"
+homepage = "https://github.com/zkcrypto/bellman"
+license = "MIT/Apache-2.0"
+name = "bellman"
+repository = "https://github.com/zkcrypto/bellman"
+version = "0.11.1"
+edition = "2018"
+
+[dependencies]
+sgx_tstd = { path="/root/sgx/sgx_tstd" }
+bitvec       = {path = "/root/sgx/mybellman/other/bitvec-0.22.3",       default-features = false,features=["alloc"]}
+# bitvec = { git = "https://github.com/mesalock-linux/bitvec-sgx", features = ["serde"] }
+blake2s_simd = {path = "/root/sgx/mybellman/other/blake2s_simd-0.5.11", default-features = false}
+byteorder    = {path = "/root/sgx/mybellman/other/byteorder-1.4.3"     }
+# byteorder = { git = "https://github.com/mesalock-linux/byteorder-sgx" }
+
+# rand_core    = {path = "/root/sgx/mybellman/other/rand_core-0.6.3"}
+rand_core =         {path = "/root/sgx/mybellman/other/rand-sgx/rand_core"}
+
+subtle       = {path = "/root/sgx/mybellman/other/subtle-2.4.1",default-features=false}
+# subtle =     { git = "https://github.com/mesalock-linux/subtle-sgx" }
+ff           = {path = "/root/sgx/mybellman/other/ff-0.11.0",default-features=false,features=["bits"]}
+group        = {path = "/root/sgx/mybellman/other/group-0.11.0"}
+pairing      = {path = "/root/sgx/mybellman/other/pairing-0.21.0",default-features=false,optional = true}
+
+
+
+# Multicore dependencies
+# crossbeam-channel = { path= "/root/sgx/mybellman/other/crossbeam-channel-0.5.2", optional = true }
+# lazy_static = { path = "/root/sgx/mybellman/other/lazy_static-1.4.0", optional = true,features=["spin_no_std"]}
+# # log = { path = "/root/sgx/mybellman/other/log-0.4.14", optional = true }
+# log = { git = "https://github.com/mesalock-linux/log-sgx", features = ["kv_unstable"],optional = true }
+# # num_cpus = { path="/root/sgx/mybellman/other/num_cpus-1.13.1", optional = true }
+# num_cpus = { git = "https://github.com/mesalock-linux/num_cpus-sgx", optional = true}
+# rayon = { version = "1.5.1", optional = true }
+
+[dev-dependencies]
+bls12_381 = "0.6"
+criterion = "0.3"
+hex-literal = "0.3"
+rand = "0.8"
+rand_xorshift = "0.3"
+sha2 = "0.9"
+
+[features]
+groth16 = ["pairing"]
+# multicore = ["crossbeam-channel", "lazy_static", "log", "num_cpus", "rayon"]
+# default = ["groth16", "multicore"]
+
+[[test]]
+name = "mimc"
+path = "tests/mimc.rs"
+required-features = ["groth16"]
+
+[[bench]]
+name = "batch"
+harness = false
+
+[[bench]]
+name = "slow"
+harness = false
+
+[badges]
+maintenance = { status = "actively-developed" }
+
+
+
+
+# [target.'cfg(not(target_env = "sgx"))'.dependencies]
+# sgx_tstd = { extern = "/root/sgx/sgx_tstd/target/release/libsgx_tstd.rlib" }
+# [dependencies]
+# sgx_trts = { git = "https://github.com/apache/teaclave-sgx-sdk.git" }
+# sgx_alloc = { path="/root/sgx/sgx_alloc" }
+# sgx_tstd = { git = "https://github.com/apache/teaclave-sgx-sdk.git" }
+
+
+
+# [patch.'https://github.com/apache/teaclave-sgx-sdk.git']
+# sgx_alloc = { path = "../../../sgx_alloc" }
+# sgx_backtrace = { path = "../../../sgx_backtrace" }
+# sgx_backtrace_sys = { path = "../../../sgx_backtrace_sys" }
+# sgx_build_helper = { path = "../../../sgx_build_helper" }
+# sgx_cov = { path = "../../../sgx_cov" }
+# sgx_crypto_helper = { path = "../../../sgx_crypto_helper" }
+# sgx_demangle = { path = "../../../sgx_demangle" }
+# sgx_libc = { path = "../../../sgx_libc" }
+# sgx_rand = { path = "../../../sgx_rand" }
+# sgx_rand_derive = { path = "../../../sgx_rand_derive" }
+# sgx_serialize = { path = "../../../sgx_serialize" }
+# sgx_serialize_derive = { path = "../../../sgx_serialize_derive" }
+# sgx_serialize_derive_internals = { path = "../../../sgx_serialize_derive_internals" }
+# sgx_tcrypto = { path = "../../../sgx_tcrypto" }
+# sgx_tcrypto_helper = { path = "../../../sgx_tcrypto_helper" }
+# sgx_tdh = { path = "../../../sgx_tdh" }
+# sgx_tkey_exchange = { path = "../../../sgx_tkey_exchange" }
+# sgx_tprotected_fs = { path = "../../../sgx_tprotected_fs" }
+# sgx_trts = { path = "../../../sgx_trts" }
+# sgx_tse = { path = "../../../sgx_tse" }
+# sgx_tseal = { path = "../../../sgx_tseal" }
+# sgx_tstd = { path = "../../../sgx_tstd" }
+# sgx_tunittest = { path = "../../../sgx_tunittest" }
+# sgx_types = { path = "../../../sgx_types" }
+# sgx_ucrypto = { path = "../../../sgx_ucrypto" }
+# sgx_unwind = { path = "../../../sgx_unwind" }
+# sgx_urts = { path = "../../../sgx_urts" }
+
+

@@ -1,0 +1,7 @@
+[package]
+name = "proc_macro"
+version = "0.0.0"
+edition = "2018"
+
+[dependencies]
+sgx_tstd = {path = "/root/sgx/sgx_tstd" }

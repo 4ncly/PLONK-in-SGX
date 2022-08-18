@@ -1,0 +1,76 @@
+myplonk v0.1.0 (/root/sgx/exp/myplonk)
+├── dusk-bls12_381 v0.10.1
+│   ├── byteorder v1.4.3
+│   ├── dusk-bytes v0.1.6
+│   │   └── derive-hex v0.1.2 (proc-macro)
+│   │       ├── proc-macro2 v1.0.43
+│   │       │   └── unicode-ident v1.0.3
+│   │       ├── quote v1.0.21
+│   │       │   └── proc-macro2 v1.0.43 (*)
+│   │       └── syn v1.0.99
+│   │           ├── proc-macro2 v1.0.43 (*)
+│   │           ├── quote v1.0.21 (*)
+│   │           └── unicode-ident v1.0.3
+│   ├── rand_core v0.6.3
+│   │   └── getrandom v0.2.7
+│   │       ├── cfg-if v1.0.0
+│   │       └── libc v0.2.131
+│   ├── rayon v1.5.3
+│   │   ├── crossbeam-deque v0.8.2
+│   │   │   ├── cfg-if v1.0.0
+│   │   │   ├── crossbeam-epoch v0.9.10
+│   │   │   │   ├── cfg-if v1.0.0
+│   │   │   │   ├── crossbeam-utils v0.8.11
+│   │   │   │   │   ├── cfg-if v1.0.0
+│   │   │   │   │   └── once_cell v1.13.0
+│   │   │   │   ├── memoffset v0.6.5
+│   │   │   │   │   [build-dependencies]
+│   │   │   │   │   └── autocfg v1.1.0
+│   │   │   │   ├── once_cell v1.13.0
+│   │   │   │   └── scopeguard v1.1.0
+│   │   │   │   [build-dependencies]
+│   │   │   │   └── autocfg v1.1.0
+│   │   │   └── crossbeam-utils v0.8.11 (*)
+│   │   ├── either v1.7.0
+│   │   └── rayon-core v1.9.3
+│   │       ├── crossbeam-channel v0.5.6
+│   │       │   ├── cfg-if v1.0.0
+│   │       │   └── crossbeam-utils v0.8.11 (*)
+│   │       ├── crossbeam-deque v0.8.2 (*)
+│   │       ├── crossbeam-utils v0.8.11 (*)
+│   │       └── num_cpus v1.13.1
+│   │           └── libc v0.2.131
+│   │   [build-dependencies]
+│   │   └── autocfg v1.1.0
+│   └── subtle v2.4.1
+├── dusk-jubjub v0.12.0-rc.0
+│   ├── dusk-bls12_381 v0.10.1 (*)
+│   ├── dusk-bytes v0.1.6 (*)
+│   ├── rand_core v0.6.3 (*)
+│   └── subtle v2.4.1
+├── dusk-plonk v0.12.0-rc.0 (/root/sgx/exp/lib/plonk)
+│   ├── cfg-if v1.0.0
+│   ├── dusk-bls12_381 v0.10.1 (*)
+│   ├── dusk-bytes v0.1.6 (*)
+│   ├── dusk-jubjub v0.12.0-rc.0 (*)
+│   ├── hashbrown v0.9.1
+│   │   └── ahash v0.4.7
+│   ├── itertools v0.9.0
+│   │   └── either v1.7.0
+│   ├── merlin v3.0.0
+│   │   ├── byteorder v1.4.3
+│   │   ├── keccak v0.1.2
+│   │   ├── rand_core v0.6.3 (*)
+│   │   └── zeroize v1.5.7
+│   │       └── zeroize_derive v1.3.2 (proc-macro)
+│   │           ├── proc-macro2 v1.0.43 (*)
+│   │           ├── quote v1.0.21 (*)
+│   │           ├── syn v1.0.99 (*)
+│   │           └── synstructure v0.12.6
+│   │               ├── proc-macro2 v1.0.43 (*)
+│   │               ├── quote v1.0.21 (*)
+│   │               ├── syn v1.0.99 (*)
+│   │               └── unicode-xid v0.2.3
+│   └── rand_core v0.6.3 (*)
+└── rand_core v0.6.3 (*)
+

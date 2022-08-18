@@ -1,0 +1,100 @@
+Helloworldsampleenclave v1.0.0 (/root/sgx/exp/helloworld/enclave)
+├── dusk-bls12_381 v0.10.1 (/root/sgx/exp/lib/dusk-bls12_381-0.10.1)
+│   ├── byteorder v1.4.3 (/root/sgx/exp/lib/byteorder-1.4.3)
+│   │   └── sgx_tstd v1.1.5 (/root/sgx/sgx_tstd)
+│   │       ├── hashbrown_tstd v0.12.0 (/root/sgx/sgx_tstd/hashbrown)
+│   │       │   └── ahash v0.7.6
+│   │       │       ├── getrandom v0.2.7
+│   │       │       │   ├── cfg-if v1.0.0
+│   │       │       │   └── libc v0.2.131
+│   │       │       └── once_cell v1.13.0
+│   │       │       [build-dependencies]
+│   │       │       └── version_check v0.9.4
+│   │       ├── sgx_alloc v1.1.5 (/root/sgx/sgx_alloc)
+│   │       ├── sgx_backtrace_sys v1.1.5 (/root/sgx/sgx_backtrace_sys)
+│   │       │   └── sgx_libc v1.1.5 (/root/sgx/sgx_libc)
+│   │       │       └── sgx_types v1.1.5 (/root/sgx/sgx_types)
+│   │       │   [build-dependencies]
+│   │       │   ├── cc v1.0.73
+│   │       │   └── sgx_build_helper v1.1.5 (/root/sgx/sgx_build_helper)
+│   │       ├── sgx_demangle v1.1.5 (/root/sgx/sgx_demangle)
+│   │       ├── sgx_libc v1.1.5 (/root/sgx/sgx_libc) (*)
+│   │       ├── sgx_tprotected_fs v1.1.5 (/root/sgx/sgx_tprotected_fs)
+│   │       │   ├── sgx_trts v1.1.5 (/root/sgx/sgx_trts)
+│   │       │   │   ├── sgx_libc v1.1.5 (/root/sgx/sgx_libc) (*)
+│   │       │   │   └── sgx_types v1.1.5 (/root/sgx/sgx_types)
+│   │       │   └── sgx_types v1.1.5 (/root/sgx/sgx_types)
+│   │       ├── sgx_trts v1.1.5 (/root/sgx/sgx_trts) (*)
+│   │       ├── sgx_types v1.1.5 (/root/sgx/sgx_types)
+│   │       └── sgx_unwind v1.1.5 (/root/sgx/sgx_unwind)
+│   │           [build-dependencies]
+│   │           └── sgx_build_helper v1.1.5 (/root/sgx/sgx_build_helper)
+│   ├── dusk-bytes v0.1.6 (/root/sgx/exp/lib/dusk-bytes-0.1.6)
+│   │   ├── derive-hex v0.1.2 (/root/sgx/exp/lib/derive-hex-0.1.2)
+│   │   │   ├── proc-macro2 v1.0.43 (/root/sgx/exp/lib/proc-macro2-1.0.43)
+│   │   │   │   ├── sgx_tstd v1.1.5 (/root/sgx/sgx_tstd) (*)
+│   │   │   │   └── unicode-ident v1.0.3 (/root/sgx/exp/lib/unicode-ident-1.0.3)
+│   │   │   │       └── sgx_tstd v1.1.5 (/root/sgx/sgx_tstd) (*)
+│   │   │   │   [build-dependencies]
+│   │   │   │   ├── sgx_trts v1.1.5 (/root/sgx/sgx_trts) (*)
+│   │   │   │   └── sgx_tstd v1.1.5 (/root/sgx/sgx_tstd) (*)
+│   │   │   ├── quote v1.0.21 (/root/sgx/exp/lib/quote-1.0.21)
+│   │   │   │   ├── proc-macro2 v1.0.43 (/root/sgx/exp/lib/proc-macro2-1.0.43) (*)
+│   │   │   │   └── sgx_tstd v1.1.5 (/root/sgx/sgx_tstd) (*)
+│   │   │   ├── sgx_tstd v1.1.5 (/root/sgx/sgx_tstd) (*)
+│   │   │   └── syn v1.0.99 (/root/sgx/exp/lib/syn-1.0.99)
+│   │   │       ├── proc-macro2 v1.0.43 (/root/sgx/exp/lib/proc-macro2-1.0.43) (*)
+│   │   │       ├── quote v1.0.21 (/root/sgx/exp/lib/quote-1.0.21) (*)
+│   │   │       ├── sgx_tstd v1.1.5 (/root/sgx/sgx_tstd) (*)
+│   │   │       └── unicode-ident v1.0.3 (/root/sgx/exp/lib/unicode-ident-1.0.3) (*)
+│   │   └── sgx_tstd v1.1.5 (/root/sgx/sgx_tstd) (*)
+│   ├── rand_core v0.6.3 (/root/sgx/exp/lib/rand_core-0.6.3)
+│   │   ├── getrandom v0.1.14 (/root/sgx/exp/lib/getrandom-sgx)
+│   │   │   ├── cfg-if v0.1.10
+│   │   │   ├── sgx_libc v1.1.5 (/root/sgx/sgx_libc) (*)
+│   │   │   ├── sgx_trts v1.1.5 (/root/sgx/sgx_trts) (*)
+│   │   │   └── sgx_tstd v1.1.5 (/root/sgx/sgx_tstd) (*)
+│   │   └── sgx_tstd v1.1.5 (/root/sgx/sgx_tstd) (*)
+│   ├── sgx_tstd v1.1.5 (/root/sgx/sgx_tstd) (*)
+│   └── subtle v2.4.1 (/root/sgx/exp/lib/subtle-2.4.1)
+├── dusk-jubjub v0.12.0-rc.0 (/root/sgx/exp/lib/dusk-jubjub-0.12.0-rc.0)
+│   ├── dusk-bls12_381 v0.10.1 (/root/sgx/exp/lib/dusk-bls12_381-0.10.1) (*)
+│   ├── dusk-bytes v0.1.6 (/root/sgx/exp/lib/dusk-bytes-0.1.6) (*)
+│   ├── rand_core v0.6.3 (/root/sgx/exp/lib/rand_core-0.6.3) (*)
+│   ├── sgx_tstd v1.1.5 (/root/sgx/sgx_tstd) (*)
+│   └── subtle v2.4.1 (/root/sgx/exp/lib/subtle-2.4.1)
+├── dusk-plonk v0.12.0-rc.0 (/root/sgx/exp/lib/plonk)
+│   ├── cfg-if v1.0.0 (/root/sgx/exp/lib/cfg-if-1.0.0)
+│   ├── dusk-bls12_381 v0.10.1 (/root/sgx/exp/lib/dusk-bls12_381-0.10.1) (*)
+│   ├── dusk-bytes v0.1.6 (/root/sgx/exp/lib/dusk-bytes-0.1.6) (*)
+│   ├── dusk-jubjub v0.12.0-rc.0 (/root/sgx/exp/lib/dusk-jubjub-0.12.0-rc.0) (*)
+│   ├── hashbrown_tstd v0.12.0 (/root/sgx/sgx_tstd/hashbrown) (*)
+│   ├── itertools v0.8.0 (/root/sgx/exp/lib/rust-itertools-sgx)
+│   │   ├── either v1.7.0
+│   │   └── sgx_tstd v1.1.5 (/root/sgx/sgx_tstd) (*)
+│   ├── merlin v3.0.0 (/root/sgx/exp/lib/merlin-3.0.0)
+│   │   ├── byteorder v1.4.3 (/root/sgx/exp/lib/byteorder-1.4.3) (*)
+│   │   ├── keccak v0.1.2 (/root/sgx/exp/lib/keccak-0.1.2)
+│   │   ├── rand_core v0.6.3 (/root/sgx/exp/lib/rand_core-0.6.3) (*)
+│   │   ├── sgx_tstd v1.1.5 (/root/sgx/sgx_tstd) (*)
+│   │   └── zeroize v1.5.7 (/root/sgx/exp/lib/zeroize-1.5.7)
+│   │       ├── sgx_tstd v1.1.5 (/root/sgx/sgx_tstd) (*)
+│   │       └── zeroize_derive v1.3.2 (proc-macro)
+│   │           ├── proc-macro2 v1.0.43
+│   │           │   └── unicode-ident v1.0.3
+│   │           ├── quote v1.0.21
+│   │           │   └── proc-macro2 v1.0.43 (*)
+│   │           ├── syn v1.0.99
+│   │           │   ├── proc-macro2 v1.0.43 (*)
+│   │           │   ├── quote v1.0.21 (*)
+│   │           │   └── unicode-ident v1.0.3
+│   │           └── synstructure v0.12.6
+│   │               ├── proc-macro2 v1.0.43 (*)
+│   │               ├── quote v1.0.21 (*)
+│   │               ├── syn v1.0.99 (*)
+│   │               └── unicode-xid v0.2.3
+│   ├── rand_core v0.6.3 (/root/sgx/exp/lib/rand_core-0.6.3) (*)
+│   └── sgx_tstd v1.1.5 (/root/sgx/sgx_tstd) (*)
+├── rand_core v0.6.3 (/root/sgx/exp/lib/rand_core-0.6.3) (*)
+├── sgx_tstd v1.1.5 (/root/sgx/sgx_tstd) (*)
+└── sgx_types v1.1.5 (/root/sgx/sgx_types)

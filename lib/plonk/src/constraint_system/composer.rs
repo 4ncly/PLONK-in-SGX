@@ -52,7 +52,7 @@ use std::collections::HashMap;
 #[derive(Debug)]
 pub struct TurboComposer {
     /// Number of arithmetic gates in the circuit
-    pub(crate) n: usize,
+    pub n: usize,
 
     // Constraint vectors
     /// Multiplier selector
@@ -95,7 +95,7 @@ pub struct TurboComposer {
     pub(crate) d_w: Vec<Witness>,
 
     /// These are the actual witness values.
-    pub(crate) witnesses: HashMap<Witness, BlsScalar>,
+    pub witnesses: HashMap<Witness, BlsScalar>,
 
     /// Permutation argument.
     pub(crate) perm: Permutation,
@@ -394,6 +394,29 @@ impl TurboComposer {
         let constraint = Constraint::new().mult(1).a(bit).b(value);
 
         self.gate_mul(constraint)
+    }
+
+    ///0
+    pub fn component_select_0(
+        &mut self,
+        bit: Witness,
+        value: Witness,
+    ) -> Witness {
+
+        debug_assert!(
+            self.witnesses[&bit] == BlsScalar::one()
+                || self.witnesses[&bit] == BlsScalar::zero()
+        );
+
+        // 1 - bit
+        let constraint =
+            Constraint::new().left(-BlsScalar::one()).constant(1).a(bit);
+        let one_min_bit = self.gate_add(constraint);
+
+        // (1 - bit) * b
+        let constraint = Constraint::new().mult(1).a(one_min_bit).b(value);
+        self.gate_mul(constraint)
+
     }
 
     /// Conditionally selects a [`Witness`] based on an input bit.

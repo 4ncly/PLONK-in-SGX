@@ -1,0 +1,25 @@
+{
+  "inputs": [
+    {
+      "name": "a",
+      "public": false,
+      "type": "u8"
+    },
+    {
+      "name": "b",
+      "public": false,
+      "type": "u8"
+    },
+    {
+      "name": "c",
+      "public": true,
+      "type": "bool"
+    }
+  ],
+  "output": {
+    "type": "tuple",
+    "components": {
+      "elements": []
+    }
+  }
+}

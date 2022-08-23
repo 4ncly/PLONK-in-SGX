@@ -396,6 +396,29 @@ impl TurboComposer {
         self.gate_mul(constraint)
     }
 
+    ///0
+    pub fn component_select_0(
+        &mut self,
+        bit: Witness,
+        value: Witness,
+    ) -> Witness {
+        
+        debug_assert!(
+            self.witnesses[&bit] == BlsScalar::one()
+                || self.witnesses[&bit] == BlsScalar::zero()
+        );
+
+        // 1 - bit
+        let constraint =
+            Constraint::new().left(-BlsScalar::one()).constant(1).a(bit);
+        let one_min_bit = self.gate_add(constraint);
+
+        // (1 - bit) * b
+        let constraint = Constraint::new().mult(1).a(one_min_bit).b(value);
+        self.gate_mul(constraint)
+
+    }
+    
     /// Conditionally selects a [`Witness`] based on an input bit.
     ///
     /// bit == 1 => value,

@@ -26,7 +26,7 @@ fn main() {
         let now = Instant::now();
 
         // Initialize the circuit
-        let mut circuit = TestCircuit::default();
+        let mut circuit = Yao::default();
         // Compile/preproces the circuit
         let (pk, vd) = circuit.compile(&pp).unwrap();
         
@@ -34,25 +34,27 @@ fn main() {
 
         // Prover POV
         let proof = {
-            let mut circuit = TestCircuit {
-                a: BlsScalar::from(20u64),
-                b: BlsScalar::from(5u64),
-                c: BlsScalar::from(25u64),
+            let mut circuit = Yao {
+
+                a: BlsScalar::from(12),
+                b: BlsScalar::from(10),
+                c: BlsScalar::from(1)
+
             };
             circuit.prove(&pp, &pk, b"Test", &mut OsRng).unwrap()
         };
         
         // Verifier POV
         let public_inputs: Vec<PublicInputValue> = vec![
-            BlsScalar::from(25u64).into()
+            
         ];
-        let r = TestCircuit::verify(
-            &pp,
-            &vd,
-            &proof,
-            &public_inputs,
-            b"Test",
-        );
+        // let r = TestCircuit::verify(
+        //     &pp,
+        //     &vd,
+        //     &proof,
+        //     &public_inputs,
+        //     b"Test",
+        // );
 
         // match r {
         //     Ok(()) => println!("OK"),
@@ -63,5 +65,5 @@ fn main() {
         t_0 += now.elapsed().as_millis();
 
     }
-    println!("{}",t_0/100);
+    println!("{}",t_0);
 }

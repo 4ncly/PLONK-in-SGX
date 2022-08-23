@@ -62,26 +62,29 @@ pub extern "C" fn say_something(some_string: *const u8, some_len: usize) -> sgx_
         let now = Instant::now();
 
         // Initialize the circuit
-        let mut circuit = Add::default();
+        let mut circuit = Yao::default();
         // Compile/preproces the circuit
         let (pk, vd) = circuit.compile(&pp).unwrap();
         
         // Prover POV
         let proof = {
-            let mut circuit = Add {
-                a: BlsScalar::from(20u64),
-                b: BlsScalar::from(5u64),
-                c: BlsScalar::from(25u64),
+            let mut circuit = Yao {
+
+                a: BlsScalar::from(12),
+                b: BlsScalar::from(10),
+                c: BlsScalar::from(1)
+
             };
             circuit.prove(&pp, &pk, b"Test", &mut OsRng).unwrap()
         };
-        
+
         // Verifier POV
         let public_inputs: Vec<PublicInputValue> = vec![
-            BlsScalar::from(25u64).into(),
+            BlsScalar::from(1).into(),
 
         ];
-        let r = Add::verify(
+
+        let r = Yao::verify(
             &pp,
             &vd,
             &proof,
@@ -89,16 +92,17 @@ pub extern "C" fn say_something(some_string: *const u8, some_len: usize) -> sgx_
             b"Test",
         );
 
-        // match r {
-        //     Ok(()) => println!("OK"),
-        //     _  => println!("Wrong")
+        match r {
+            Ok(()) => println!("OK"),
+            _  => println!("Wrong")
 
-        // }
+        }
 
         t_0 += now.elapsed().as_millis();
-        println!("{:?}",t_0);
 
     }
+    println!("{:?}",t_0);
+
 
     sgx_status_t::SGX_SUCCESS
 }

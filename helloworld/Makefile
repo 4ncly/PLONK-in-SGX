@@ -20,6 +20,7 @@
 SGX_SDK ?= /opt/sgxsdk
 SGX_MODE ?= HW
 SGX_ARCH ?= x64
+SGX_DEBUG ?=0
 
 TOP_DIR := ../..
 include $(TOP_DIR)/buildenv.mk

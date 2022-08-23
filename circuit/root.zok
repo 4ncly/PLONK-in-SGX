@@ -1,0 +1,8 @@
+
+
+def main(private u8 a, private u8 b, bool mut c){
+
+    c = if a>=b {true} else {false};
+    return;
+
+}

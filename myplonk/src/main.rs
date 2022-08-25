@@ -23,10 +23,9 @@ fn main() {
 
     for i in 0..100{
 
-        let now = Instant::now();
 
         // Initialize the circuit
-        let mut circuit = Yao::default();
+        let mut circuit = TestCircuit::default();
         // Compile/preproces the circuit
         let (pk, vd) = circuit.compile(&pp).unwrap();
         
@@ -34,11 +33,11 @@ fn main() {
 
         // Prover POV
         let proof = {
-            let mut circuit = Yao {
+            let mut circuit = TestCircuit {
 
-                a: BlsScalar::from(12),
-                b: BlsScalar::from(10),
-                c: BlsScalar::from(1)
+                a:BlsScalar::from(20),
+                b:BlsScalar::from(5),
+                c:BlsScalar::from(25)
 
             };
             circuit.prove(&pp, &pk, b"Test", &mut OsRng).unwrap()
@@ -46,15 +45,18 @@ fn main() {
         
         // Verifier POV
         let public_inputs: Vec<PublicInputValue> = vec![
-            
+            BlsScalar::from(25).into()
         ];
-        // let r = TestCircuit::verify(
-        //     &pp,
-        //     &vd,
-        //     &proof,
-        //     &public_inputs,
-        //     b"Test",
-        // );
+        
+        let now = Instant::now();
+
+        let r = TestCircuit::verify(
+            &pp,
+            &vd,
+            &proof,
+            &public_inputs,
+            b"Test",
+        );
 
         // match r {
         //     Ok(()) => println!("OK"),

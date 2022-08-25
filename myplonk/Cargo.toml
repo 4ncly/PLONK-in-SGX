@@ -17,6 +17,5 @@ dusk-plonk = {path = "/root/sgx/exp/dusk-plonk-0.12.0"}
 
 [dependencies.dusk-bls12_381]
 path = "/root/sgx/exp/dusk-bls12_381-0.11.0"
-# default-features = false
 default-features = false
 features = ["groups", "pairings", "endo"]
